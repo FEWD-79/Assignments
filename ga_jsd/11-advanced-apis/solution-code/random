@@ -1,0 +1,9 @@
+// var exports = module.exports = {}
+
+// exports.random_method_name  = function () {
+//       return '_500pxCallback' + String(Math.round(Math.random() * 100000000));
+//     };
+
+random_method_name  = function () {
+      return '_500pxCallback' + String(Math.round(Math.random() * 100000000));
+    };

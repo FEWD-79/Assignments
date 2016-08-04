@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+  <h1>Inside Callback.hmtl</h1>
+    <script>
+     console.log("inside while loop in script tag of body")
+     //window.location.hash return the anchor part of a URL.
+     debugger;
+     // Location {hash: "#token:Rkq0EusxETX0sD0wXtDiwDmb2mcCdpC8OAvPCbNC,callback:_500pxCallback36970627", search: "", pathname: "/callback.html", port: "3000", hostname: "localhost"…}
+      var hash_string = window.location.hash.substring(1),
+          parts = hash_string.split(','),
+          part,
+          result = {},
+          parent_document = window.opener ? window.opener : parent;
+      while (part = parts.shift()) {
+        //"token:Rkq0EusxETX0sD0wXtDiwDmb2mcCdpC8OAvPCbNC"
+        console.log("inside while loop in script tag of body")
+        part = part.split(':');
+        result[part[0]] = part[1] == undefined ? true : part[1];
+      }
+      parent_document[result.callback](result);
+      if (window.opener) {
+        window.close();
+      }
+    </script>
+  </body>
+</html>

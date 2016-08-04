@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Advanced APIs Lesson</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- css -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Geolocation/1.0.50/jquery.geolocation.min.js"></script> -->
+
+<!-- used with geo -->
+ <script src="http://code.jquerygeo.com/jquery.geo-1.0.0-rc1.1.min.js"></script>
+
+
+<!-- Used for google maps -->
+
+
+<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+ <!-- <script>alert("Your location is: " + geoplugin_countryName() + ", " + geoplugin_region() + ", " + geoplugin_city()) + "," + geoplugin_latitude() + "," + geoplugin_longitude();</script> -->
+
+<script src="http://maps.google.com/maps?file=api&v=3&key=AIzaSyDDfKulrldaUG_1mzpYbTW8FEnSJKdeDu8" type="text/javascript"></script>
+  <script type="text/javascript">
+    // function load() {
+    //   if (GBrowserIsCompatible()) {
+    //     var map = new GMap2(document.getElementById("map"));
+    //     map.addControl(new GLargeMapControl());
+    //     map.addControl(new GMapTypeControl());
+    //     map.setCenter(new GLatLng(geoplugin_latitude(), geoplugin_longitude()), 12);
+    //   }
+    // }
+
+      function load() {
+        var mapDiv = document.getElementById("map");
+        var map;
+        var myLatlng = new google.maps.LatLng(40.7354,-73.8783);
+        var myOptions = {
+         zoom:10,
+        center:myLatlng,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(mapDiv, myOptions);
+        console.log(map)
+
+     }
+  </script>
+</head>
+<body>
+
+  <header class="container-fluid text-center">
+    <h1>Local<span>Landscapes</span></h1>
+  </header>
+
+  <div class="container-fluid sign-in-view">
+    <div class="row text-center">
+      <h3>Discover how beautiful your surroundings can be</h3>
+      <button class="btn btn-default">
+        <a href="#" id="login">Login to 500px</a>
+      </button>
+    </div>
+  </div>
+
+  <div class="container-fluid text-center image-results-view">
+    <h3>Here are some landscape photos from 500px near you:</h3>
+    <div class="images"></div>
+  </div>
+
+  <div id="map" style="height: 480px;">MAP IT</div>
+     <script>//load();</script>
+  <script>
+  // $(function() {
+  //   $( "#map" ).geomap( );
+  // });
+</script>
+
+
+  <!-- js -->
+  <script src="supporting_functions.js"></script>
+  <script src="500px.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
